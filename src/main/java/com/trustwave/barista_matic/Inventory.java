@@ -9,14 +9,10 @@ import com.trustwave.factory.IngredientEnum;
 
 public class Inventory {
 
-    List <IngredientEnum> ingredients;
+    List<IngredientEnum> ingredients;
 
-    public Inventory(){
+    public Inventory() {
         ingredients = new ArrayList<IngredientEnum>();
-    }
-
-    public void restock(){
-        ingredients.clear();
         ingredients.add(IngredientEnum.COCOA);
         ingredients.add(IngredientEnum.COFFEE);
         ingredients.add(IngredientEnum.CREAM);
@@ -30,10 +26,43 @@ public class Inventory {
         Collections.sort(ingredients);
     }
 
-    public void display(){
+    public void restock() {
+        ingredients.clear();
+        IngredientEnum cocoa = IngredientEnum.COCOA;
+        cocoa.setQuantity(10);
+        ingredients.add(cocoa);
+        IngredientEnum coffee = IngredientEnum.COFFEE;
+        coffee.setQuantity(10);
+        ingredients.add(coffee);
+        IngredientEnum cream = IngredientEnum.CREAM;
+        cream.setQuantity(10);
+        ingredients.add(cream);
+        IngredientEnum decaf = IngredientEnum.DECAF_COFFEE;
+        decaf.setQuantity(10);
+        ingredients.add(decaf);
+        IngredientEnum espresso = IngredientEnum.ESPRESSO;
+        espresso.setQuantity(10);
+        ingredients.add(espresso);
+        IngredientEnum foamed = IngredientEnum.FOAMED_MILK;
+        foamed.setQuantity(10);
+        ingredients.add(foamed);
+        IngredientEnum steam = IngredientEnum.STEAMED_MILK;
+        steam.setQuantity(10);
+        ingredients.add(steam);
+        IngredientEnum sugar = IngredientEnum.SUGAR;
+        sugar.setQuantity(10);
+        ingredients.add(sugar);
+        IngredientEnum whip = IngredientEnum.WHIPPED_CREAM;
+        whip.setQuantity(10);
+        ingredients.add(whip);
+
+        Collections.sort(ingredients);
+    }
+
+    public void display() {
         System.out.println("Inventory :");
-        for (IngredientEnum ingredient : ingredients) {
-            System.out.printf( "%s,%d\n",ingredient.getName() , ingredient.getQuantity());
+        for (IngredientEnum ingredient : this.ingredients) {
+            System.out.printf("%s,%d\n", ingredient.getName(), ingredient.getQuantity());
         }
     }
 
@@ -45,7 +74,7 @@ public class Inventory {
         this.ingredients = ingredients;
     }
 
-    public boolean canDispence(Drink d){
+    public boolean canDispence(Drink d) {
         if (d.isAvailable(ingredients)) {
             System.out.println("Dispensing : " + d.getName());
             for (IngredientEnum i : d.getIngredients()) {
