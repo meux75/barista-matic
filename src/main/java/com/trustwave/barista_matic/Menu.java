@@ -36,10 +36,10 @@ public class Menu {
         drinkItems.get(i).despensingDrink();
     }
 
-    public void display() {
+    public void display(Inventory inventory) {
         System.out.println("Menu:");
         for (Drink drink : drinkItems) {
-            System.out.printf("%d,%s,$%.2f,%b\n", drink.getNumber(), drink.getName(), drink.getCost(), true);
+            System.out.printf("%d,%s,$%.2f,%s\n", drink.getNumber(), drink.getName(), drink.getCost(), drink.isAvailable(inventory.getIngredients()));
         }
     }
 

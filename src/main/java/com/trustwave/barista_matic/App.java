@@ -10,7 +10,7 @@ public class App {
         inventory.restock();
         inventory.display();
         menu.drinkFactory();
-        menu.display();
+        menu.display(inventory);
         do {
             System.out.println("Enter Option >");
             String input = new Scanner(System.in).nextLine();
@@ -26,11 +26,17 @@ public class App {
                 if ("r".equalsIgnoreCase(input)) {
                     inventory.restock();
                 } else {
-                    validInput = false;
+                    int in = -1;
+                    try {
+                        in = Integer.parseInt(input);
+                        validInput = menu.dispense(in, inventory);
+                    } catch (Exception e) {
+                        validInput = false;
+                    }
                 }
                 if (validInput) {
                     inventory.display();
-                    // menu.display();
+                    menu.display(inventory);
                 } else {
                     System.out.println("Invalid selection: " + input);
                 }

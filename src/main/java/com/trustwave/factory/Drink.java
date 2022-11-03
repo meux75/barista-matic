@@ -51,6 +51,7 @@ public abstract class Drink implements Comparable<Drink>{
     }
 
     public boolean isAvailable(List<IngredientEnum> inventory){
+        boolean bret = true;
         if (inventory == null || inventory.isEmpty()) {
             return false;
         }
@@ -59,13 +60,14 @@ public abstract class Drink implements Comparable<Drink>{
             if (inventory.contains(i)) {
                 IngredientEnum in = inventory.get(inventory.indexOf(i));
                 if (in.getQuantity() < i.getQuantity()) {
-                    return false;
+                  bret = false;
+                  break;
                 }
             }else {
-                return false;
+                bret = false;
             }
         }
 
-        return true;
+        return bret;
     }
 }
