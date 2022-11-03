@@ -1,10 +1,10 @@
 package com.trustwave.factory;
 
+import java.util.List;
+
 public class CaffeAmericanoDrink extends Drink {
 
-    @Override
-    public void despensingDrink() {
-        System.out.println("Dispensing: Caffe Americano");
+    public CaffeAmericanoDrink(List<Ingredient> ingredients) {
+        super("Caffe Americano", ingredients);
     }
-
 }

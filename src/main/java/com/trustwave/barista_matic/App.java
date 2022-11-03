@@ -7,7 +7,6 @@ public class App {
     static Menu menu = new Menu();
 
     public static void main(String[] args) {
-        inventory.restock();
         inventory.display();
         menu.drinkFactory();
         menu.display(inventory);
@@ -17,14 +16,12 @@ public class App {
             boolean validInput = true;
 
             if (!input.isEmpty()) {
-                // char c = (input.length() > 1) ? 0 : input.toLowerCase().charAt(0);
-
                 if ("q".equalsIgnoreCase(input)) {
                     System.exit(0);
                 }
 
                 if ("r".equalsIgnoreCase(input)) {
-                    inventory.restock();
+                    inventory = new Inventory();
                 } else {
                     int in = -1;
                     try {

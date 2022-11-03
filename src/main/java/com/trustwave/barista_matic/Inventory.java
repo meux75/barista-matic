@@ -4,81 +4,58 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.trustwave.factory.Cocoa;
+import com.trustwave.factory.Coffee;
+import com.trustwave.factory.Cream;
+import com.trustwave.factory.DecafCoffee;
 import com.trustwave.factory.Drink;
-import com.trustwave.factory.IngredientEnum;
+import com.trustwave.factory.Espresso;
+import com.trustwave.factory.FoamedMilk;
+import com.trustwave.factory.Ingredient;
+import com.trustwave.factory.SteamedMilk;
+import com.trustwave.factory.Sugar;
+import com.trustwave.factory.WhippedCream;
 
 public class Inventory {
 
-    List<IngredientEnum> ingredients;
+    List<Ingredient> ingredients;
 
     public Inventory() {
-        ingredients = new ArrayList<IngredientEnum>();
-        ingredients.add(IngredientEnum.COCOA);
-        ingredients.add(IngredientEnum.COFFEE);
-        ingredients.add(IngredientEnum.CREAM);
-        ingredients.add(IngredientEnum.DECAF_COFFEE);
-        ingredients.add(IngredientEnum.ESPRESSO);
-        ingredients.add(IngredientEnum.FOAMED_MILK);
-        ingredients.add(IngredientEnum.STEAMED_MILK);
-        ingredients.add(IngredientEnum.SUGAR);
-        ingredients.add(IngredientEnum.WHIPPED_CREAM);
+        ingredients = new ArrayList<Ingredient>();
 
-        Collections.sort(ingredients);
-    }
-
-    public void restock() {
-        ingredients.clear();
-        IngredientEnum cocoa = IngredientEnum.COCOA;
-        cocoa.setQuantity(10);
-        ingredients.add(cocoa);
-        IngredientEnum coffee = IngredientEnum.COFFEE;
-        coffee.setQuantity(10);
-        ingredients.add(coffee);
-        IngredientEnum cream = IngredientEnum.CREAM;
-        cream.setQuantity(10);
-        ingredients.add(cream);
-        IngredientEnum decaf = IngredientEnum.DECAF_COFFEE;
-        decaf.setQuantity(10);
-        ingredients.add(decaf);
-        IngredientEnum espresso = IngredientEnum.ESPRESSO;
-        espresso.setQuantity(10);
-        ingredients.add(espresso);
-        IngredientEnum foamed = IngredientEnum.FOAMED_MILK;
-        foamed.setQuantity(10);
-        ingredients.add(foamed);
-        IngredientEnum steam = IngredientEnum.STEAMED_MILK;
-        steam.setQuantity(10);
-        ingredients.add(steam);
-        IngredientEnum sugar = IngredientEnum.SUGAR;
-        sugar.setQuantity(10);
-        ingredients.add(sugar);
-        IngredientEnum whip = IngredientEnum.WHIPPED_CREAM;
-        whip.setQuantity(10);
-        ingredients.add(whip);
+        ingredients.add(new Cocoa(10));
+        ingredients.add(new Coffee(10));
+        ingredients.add(new Cream(10));
+        ingredients.add(new DecafCoffee(10));
+        ingredients.add(new Espresso(10));
+        ingredients.add(new FoamedMilk(10));
+        ingredients.add(new SteamedMilk(10));
+        ingredients.add(new Sugar(10));
+        ingredients.add(new WhippedCream(10));
 
         Collections.sort(ingredients);
     }
 
     public void display() {
         System.out.println("Inventory :");
-        for (IngredientEnum ingredient : this.ingredients) {
+        for (Ingredient ingredient : this.ingredients) {
             System.out.printf("%s,%d\n", ingredient.getName(), ingredient.getQuantity());
         }
     }
 
-    public List<IngredientEnum> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<IngredientEnum> ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
     public boolean canDispence(Drink d) {
         if (d.isAvailable(ingredients)) {
             System.out.println("Dispensing : " + d.getName());
-            for (IngredientEnum i : d.getIngredients()) {
-                IngredientEnum in = ingredients.get(ingredients.indexOf(i));
+            for (Ingredient i : d.getIngredients()) {
+                Ingredient in = ingredients.get(ingredients.indexOf(i));
                 in.setQuantity(in.getQuantity() - i.getQuantity());
             }
             return true;

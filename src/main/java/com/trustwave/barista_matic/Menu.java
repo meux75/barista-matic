@@ -32,10 +32,6 @@ public class Menu {
         }
     }
 
-    public void makeDrink(int i) {
-        drinkItems.get(i).despensingDrink();
-    }
-
     public void display(Inventory inventory) {
         System.out.println("Menu:");
         for (Drink drink : drinkItems) {

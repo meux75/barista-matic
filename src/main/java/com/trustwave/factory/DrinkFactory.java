@@ -8,106 +8,50 @@ public class DrinkFactory {
 
         switch (type) {
             case COFFEE: {
-                List<IngredientEnum> coffeeIngredients = new ArrayList<IngredientEnum>();
-                IngredientEnum coffee = IngredientEnum.COFFEE;
-                IngredientEnum sugar = IngredientEnum.SUGAR;
-                IngredientEnum cream = IngredientEnum.CREAM;
-                coffee.setQuantity(3);
-                sugar.setQuantity(1);
-                cream.setQuantity(1);
-                coffeeIngredients.add(coffee);
-                coffeeIngredients.add(cream);
-                coffeeIngredients.add(sugar);
+                List<Ingredient> ingredients = new ArrayList<Ingredient>();
+                ingredients.add(new Coffee(3));
+                ingredients.add(new Cream(1));
+                ingredients.add(new Sugar(1));
 
-                CoffeeDrink coffeeDrink = new CoffeeDrink();
-                coffeeDrink.setName("Coffee");
-                coffeeDrink.setIngredients(coffeeIngredients);
-
-                return coffeeDrink;
+                return new CoffeeDrink(ingredients);
             }
             case DECAF_COFFEE: {
-                List<IngredientEnum> coffeeIngredients = new ArrayList<IngredientEnum>();
-                IngredientEnum coffee = IngredientEnum.DECAF_COFFEE;
-                IngredientEnum sugar = IngredientEnum.SUGAR;
-                IngredientEnum cream = IngredientEnum.CREAM;
-                coffee.setQuantity(3);
-                sugar.setQuantity(1);
-                cream.setQuantity(1);
-                coffeeIngredients.add(coffee);
-                coffeeIngredients.add(cream);
-                coffeeIngredients.add(sugar);
+                List<Ingredient> ingredients = new ArrayList<Ingredient>();
+                ingredients.add(new Coffee(3));
+                ingredients.add(new Cream(1));
+                ingredients.add(new Sugar(1));
 
-                DecafCoffeeDrink decafCoffeeDrink = new DecafCoffeeDrink();
-                decafCoffeeDrink.setName("Decaf Coffee");
-                decafCoffeeDrink.setIngredients(coffeeIngredients);
-
-                return decafCoffeeDrink;
+                return new DecafCoffeeDrink(ingredients);
             }
             case CAFFE_LATTE: {
-                List<IngredientEnum> coffeeIngredients = new ArrayList<IngredientEnum>();
-                IngredientEnum espresso = IngredientEnum.ESPRESSO;
-                IngredientEnum steamMilk = IngredientEnum.STEAMED_MILK;
-                espresso.setQuantity(2);
-                steamMilk.setQuantity(1);
-                coffeeIngredients.add(espresso);
-                coffeeIngredients.add(steamMilk);
+                List<Ingredient> ingredients = new ArrayList<Ingredient>();
+                ingredients.add(new Espresso(2));
+                ingredients.add(new SteamedMilk(1));
 
-                CaffeLatteDrink caffeLatteDrink = new CaffeLatteDrink();
-                caffeLatteDrink.setName("Caffe Latte");
-                caffeLatteDrink.setIngredients(coffeeIngredients);
-
-                return caffeLatteDrink;
+                return new CaffeLatteDrink(ingredients);
             }
             case CAFFE_AMERICANO: {
-                List<IngredientEnum> coffeeIngredients = new ArrayList<IngredientEnum>();
-                IngredientEnum espresso = IngredientEnum.ESPRESSO;
-                espresso.setQuantity(3);
-                coffeeIngredients.add(espresso);
+                List<Ingredient> ingredients = new ArrayList<Ingredient>();
+                ingredients.add(new Espresso(3));
 
-                CaffeAmericanoDrink caffeAmericanoDrink = new CaffeAmericanoDrink();
-                caffeAmericanoDrink.setName("Caffe Americano");
-                caffeAmericanoDrink.setIngredients(coffeeIngredients);
-
-                return caffeAmericanoDrink;
+                return new CaffeAmericanoDrink(ingredients);
             }
             case CAFFE_MOCHA: {
-                List<IngredientEnum> coffeeIngredients = new ArrayList<IngredientEnum>();
-                IngredientEnum espresso = IngredientEnum.ESPRESSO;
-                IngredientEnum cocoa = IngredientEnum.COCOA;
-                IngredientEnum steamedMilk = IngredientEnum.STEAMED_MILK;
-                IngredientEnum whippedCream = IngredientEnum.WHIPPED_CREAM;
-                espresso.setQuantity(1);
-                cocoa.setQuantity(1);
-                steamedMilk.setQuantity(1);
-                whippedCream.setQuantity(1);
-                coffeeIngredients.add(espresso);
-                coffeeIngredients.add(steamedMilk);
-                coffeeIngredients.add(whippedCream);
-                coffeeIngredients.add(cocoa);
+                List<Ingredient> ingredients = new ArrayList<Ingredient>();
+                ingredients.add(new Espresso(1));
+                ingredients.add(new Cocoa(1));
+                ingredients.add(new WhippedCream(1));
+                ingredients.add(new SteamedMilk(1));
 
-                CaffeMochaDrink caffeMochaDrink = new CaffeMochaDrink();
-                caffeMochaDrink.setName("Caffe Mocha");
-                caffeMochaDrink.setIngredients(coffeeIngredients);
-
-                return caffeMochaDrink;
+                return new CaffeMochaDrink(ingredients);
             }
             case CAPPUCCINO: {
-                List<IngredientEnum> coffeeIngredients = new ArrayList<IngredientEnum>();
-                IngredientEnum espresso = IngredientEnum.ESPRESSO;
-                IngredientEnum steamedMilk = IngredientEnum.STEAMED_MILK;
-                IngredientEnum foamedMilk = IngredientEnum.FOAMED_MILK;
-                espresso.setQuantity(2);
-                steamedMilk.setQuantity(1);
-                foamedMilk.setQuantity(1);
-                coffeeIngredients.add(espresso);
-                coffeeIngredients.add(foamedMilk);
-                coffeeIngredients.add(steamedMilk);
+                List<Ingredient> ingredients = new ArrayList<Ingredient>();
+                ingredients.add(new Espresso(2));
+                ingredients.add(new FoamedMilk(1));
+                ingredients.add(new SteamedMilk(1));
 
-                CappuccinoDrink cappuccino = new CappuccinoDrink();
-                cappuccino.setName("Cappuccino");
-                cappuccino.setIngredients(coffeeIngredients);
-
-                return cappuccino;
+                return new CappuccinoDrink(ingredients);
             }
         }
 

@@ -2,26 +2,34 @@ package com.trustwave.factory;
 
 import java.util.List;
 
-public abstract class Drink implements Comparable<Drink>{
+public abstract class Drink implements Comparable<Drink> {
     private int number;
     private String name;
-    private List<IngredientEnum> ingredients;
-    public List<IngredientEnum> getIngredients() {
+    private List<Ingredient> ingredients;
+
+    public List<Ingredient> getIngredients() {
         return ingredients;
+    }
+
+    public Drink(String name, List<Ingredient> ingredients) {
+        super();
+        this.name = name;
+        this.ingredients = ingredients;
+        computeCost();
     }
 
     private float cost;
 
     @Override
     public int compareTo(Drink o) {
-       return this.name.compareTo(o.getName());
+        return this.name.compareTo(o.getName());
     }
 
     public int getNumber() {
         return number;
     }
 
-    public void setIngredients(List<IngredientEnum> ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
         computeCost();
     }
@@ -38,36 +46,31 @@ public abstract class Drink implements Comparable<Drink>{
         this.name = name;
     }
 
-    public abstract void despensingDrink();
-
-    private void computeCost(){
-        for (IngredientEnum ingredient : ingredients) {
-            cost += ingredient.getCost() * ingredient.getQuantity();
+    private void computeCost() {
+        for (Ingredient ingredient : ingredients) {
+            this.cost += (ingredient.getUnitCost() * ingredient.getQuantity());
         }
-
     }
+
     public float getCost() {
         return cost;
     }
 
-    public boolean isAvailable(List<IngredientEnum> inventory){
-        boolean bret = true;
+    public boolean isAvailable(List<Ingredient> inventory) {
         if (inventory == null || inventory.isEmpty()) {
             return false;
         }
 
-        for (IngredientEnum i : this.ingredients) {
+        for (Ingredient i : this.ingredients) {
             if (inventory.contains(i)) {
-                IngredientEnum in = inventory.get(inventory.indexOf(i));
+                Ingredient in = inventory.get(inventory.indexOf(i));
                 if (in.getQuantity() < i.getQuantity()) {
-                  bret = false;
-                  break;
+                    return false;
                 }
-            }else {
-                bret = false;
+            } else {
+                return false;
             }
         }
-
-        return bret;
+        return true;
     }
 }

@@ -1,10 +1,10 @@
 package com.trustwave.factory;
 
+import java.util.List;
 
 public class CoffeeDrink extends Drink{
 
-    @Override
-    public void despensingDrink(){
-        System.out.println("Dispensing: Coffee");
+    public CoffeeDrink(List<Ingredient> ingredients){
+        super("Coffee", ingredients);
     }
 }
