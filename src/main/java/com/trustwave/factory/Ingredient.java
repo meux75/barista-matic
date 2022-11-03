@@ -5,7 +5,6 @@ public abstract class Ingredient implements Comparable<Ingredient>{
 	private float unitCost;
 	private int quantity;
 	
-	
 	public int getQuantity() {
 		return quantity;
 	}
@@ -13,7 +12,6 @@ public abstract class Ingredient implements Comparable<Ingredient>{
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-
 
 	public String getName() {
 		return name;
@@ -37,14 +35,8 @@ public abstract class Ingredient implements Comparable<Ingredient>{
 		this.quantity = quantity;
 	}
 	
-	
 	public int compareTo(Ingredient o) {
-		
 		return this.getName().compareTo(o.getName());
-	}
-
-	public String inventoryDescription() {
-		return name + "," + quantity;
 	}
 
 	@Override

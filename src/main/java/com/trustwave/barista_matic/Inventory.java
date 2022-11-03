@@ -47,10 +47,6 @@ public class Inventory {
         return ingredients;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
-
     public boolean canDispence(Drink d) {
         if (d.isAvailable(ingredients)) {
             System.out.println("Dispensing : " + d.getName());
