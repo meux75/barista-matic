@@ -3,6 +3,21 @@ package com.trustwave.factory;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.trustwave.factory.drinks.CaffeAmericanoDrink;
+import com.trustwave.factory.drinks.CaffeLatteDrink;
+import com.trustwave.factory.drinks.CaffeMochaDrink;
+import com.trustwave.factory.drinks.CappuccinoDrink;
+import com.trustwave.factory.drinks.CoffeeDrink;
+import com.trustwave.factory.drinks.DecafCoffeeDrink;
+import com.trustwave.factory.ingredients.Cocoa;
+import com.trustwave.factory.ingredients.Coffee;
+import com.trustwave.factory.ingredients.Cream;
+import com.trustwave.factory.ingredients.Espresso;
+import com.trustwave.factory.ingredients.FoamedMilk;
+import com.trustwave.factory.ingredients.SteamedMilk;
+import com.trustwave.factory.ingredients.Sugar;
+import com.trustwave.factory.ingredients.WhippedCream;
+
 public class DrinkFactory {
     public Drink getDrink(DrinkEnum type) {
 

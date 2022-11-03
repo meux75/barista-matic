@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.trustwave.factory.Cocoa;
-import com.trustwave.factory.Coffee;
-import com.trustwave.factory.Cream;
-import com.trustwave.factory.DecafCoffee;
 import com.trustwave.factory.Drink;
-import com.trustwave.factory.Espresso;
-import com.trustwave.factory.FoamedMilk;
 import com.trustwave.factory.Ingredient;
-import com.trustwave.factory.SteamedMilk;
-import com.trustwave.factory.Sugar;
-import com.trustwave.factory.WhippedCream;
+import com.trustwave.factory.ingredients.Cocoa;
+import com.trustwave.factory.ingredients.Coffee;
+import com.trustwave.factory.ingredients.Cream;
+import com.trustwave.factory.ingredients.DecafCoffee;
+import com.trustwave.factory.ingredients.Espresso;
+import com.trustwave.factory.ingredients.FoamedMilk;
+import com.trustwave.factory.ingredients.SteamedMilk;
+import com.trustwave.factory.ingredients.Sugar;
+import com.trustwave.factory.ingredients.WhippedCream;
 
 public class Inventory {
 

@@ -1,4 +1,6 @@
-package com.trustwave.factory;
+package com.trustwave.factory.ingredients;
+
+import com.trustwave.factory.Ingredient;
 
 public class DecafCoffee extends Ingredient{
     public DecafCoffee(int quantity) {
