@@ -5,13 +5,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.stream.Collectors;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import com.trustwave.factory.Ingredient;
 
 /**
  * Unit test for App.
